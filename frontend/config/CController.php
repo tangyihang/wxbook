@@ -13,10 +13,12 @@ class CController extends Controller {
 
     public function beforeAction($action) {
     	
-    	$echoStr = isset($_GET['echostr']) ? $_GET['echostr'] : '';
-    	if($this->checkSignature()){
-    		echo $echoStr;
-    		exit;
+    	if (!empty($_GET['echostr'])) {
+	    	$echoStr = $_GET['echostr'];
+	    	if($this->checkSignature()){
+	    		echo $echoStr;
+	    		exit;
+	    	}
     	}
 
         return true;
