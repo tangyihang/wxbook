@@ -3,7 +3,7 @@ namespace backend\controllers;
 
 use Yii;
 use yii\helpers\Json;
-use common\config\CController;
+use frontend\config\CController;
 
 /**
  * Site controller
