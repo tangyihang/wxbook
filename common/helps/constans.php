@@ -10,6 +10,8 @@ define('PAGE_SIZE_HUNDRED', 100); //分页个数
 define('PAGE_SIZE_THOUSAND', 10000); //分页个数
 define('IMGURLTOP', 'http://img.361trees.com/');//图片网址链接
 
+define("TOKEN", "weixin");
+
 define('DESC', 1); //SQL排序，降序
 define('ASC', 2); //SQL排序，升序
 
