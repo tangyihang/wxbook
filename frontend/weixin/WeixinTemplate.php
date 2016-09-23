@@ -1,5 +1,6 @@
 <?php
 namespace frontend\Weixin;
+
 /**
  * 微信消息回复基础模板
  * @author v-tangyihang-yx
