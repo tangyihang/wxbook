@@ -24,6 +24,7 @@ class CController extends Controller {
         return true;
     }
     
+    //微信验证
     private function checkSignature() {
     	// you must define TOKEN by yourself
     	if (!defined("TOKEN")) {
