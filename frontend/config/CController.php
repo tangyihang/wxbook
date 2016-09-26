@@ -5,11 +5,15 @@ use Yii;
 use yii\web\Controller;
 use yii\web\Application;
 use common\helps\globals;
+use frontend\weixin\WeixinBase;
+use frontend\weixin\WeixinTemplate;
 
 class CController extends Controller {
 
     public $user = [];
     public $subDomain;
+    public $template;
+    public $weixinBase;
 
     public function beforeAction($action) {
     	
@@ -20,6 +24,9 @@ class CController extends Controller {
 	    		exit;
 	    	}
     	}
+    	
+    	$this->template = new WeixinTemplate();
+    	$this->weixinBase = new WeixinBase();
 
         return true;
     }
