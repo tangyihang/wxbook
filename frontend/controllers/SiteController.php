@@ -5,7 +5,7 @@ use Yii;
 use yii\helpers\Json;
 use frontend\config\CController;
 use frontend\weixin\WeixinBase;
-use frontend\Weixin\WeixinTemplate;
+use frontend\weixin\WeixinTemplate;
 
 /**
  * Site controller
