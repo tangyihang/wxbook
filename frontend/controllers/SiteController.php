@@ -35,7 +35,7 @@ class SiteController extends CController {
                 $keyword = trim($postObj->Content);
                 
                 if (!empty($keyword)) {
-                	$this->template->toMsgText($fromUsername, $toUsername, $keyword);
+                	echo $this->template->toMsgText($fromUsername, $toUsername, $keyword);
                 } else {
                 	echo "Input something...";
                 }
