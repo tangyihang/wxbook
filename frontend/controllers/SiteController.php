@@ -22,7 +22,7 @@ class SiteController extends CController {
 	
 	public function actionIndex() {
 		//get post data, May be due to the different environments
-		$postStr = $this->weixinBase->wx_request_xml();
+		$postStr = $this->wx_request_xml();
 
       	//extract post data
 		if (!empty($postStr)){
@@ -43,9 +43,22 @@ class SiteController extends CController {
                 }
                 
         }else {
-        	echo "";
+        	Yii::info('none postStr');
         	exit;
         }
+	}
+	
+	/**
+	 * 获取微信请求的XML数据
+	 *
+	 * @return xml
+	 */
+	function wx_request_xml(){
+		if(!empty($GLOBALS["HTTP_RAW_POST_DATA"])){
+			return $GLOBALS["HTTP_RAW_POST_DATA"];
+		}else{
+			return file_get_contents('php://input');
+		}
 	}
 	
 }
