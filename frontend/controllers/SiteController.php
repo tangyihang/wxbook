@@ -35,7 +35,9 @@ class SiteController extends CController {
                 $keyword = trim($postObj->Content);
                 
                 if (!empty($keyword)) {
-                	echo $this->template->toMsgText($fromUsername, $toUsername, $keyword);
+                	$resultStr = $this->template->toMsgText($fromUsername, $toUsername, $keyword);
+                	echo $resultStr;
+                	Yii::info($resultStr);
                 } else {
                 	echo "Input something...";
                 }
