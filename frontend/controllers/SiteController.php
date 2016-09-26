@@ -6,10 +6,18 @@ use yii\helpers\Json;
 use frontend\config\CController;
 
 /**
- * Site controller
+ * 首页
  */
 class SiteController extends CController {
 	
+	//关键字找到多个书籍时返回书籍的ID和书籍的作者
+	//关键字只找到一个书籍时直接返回数据的最新章节
+	//书籍ID返回书籍最新的章节信息
+	
+	
+	/**
+	 * 返回消息
+	 */
 	public function actionIndex() {
 		//get post data, May be due to the different environments
 		$postStr = $this->weixinBase->wx_request_xml();
@@ -51,5 +59,6 @@ class SiteController extends CController {
         	exit;
         }
 	}
+	
 	
 }
