@@ -35,6 +35,7 @@ class WeixinData{
 	public static function getbookSource($bookid){
 		$bookInfo = Search::getBookSourcesById($bookid);
 		$msgType = 'news';
+		$content = '';
 		if (!empty($bookInfo)) {
 			
 			var_dump($bookInfo);
