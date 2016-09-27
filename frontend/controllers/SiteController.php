@@ -16,7 +16,6 @@ class SiteController extends CController {
 	//关键字只找到一个书籍时直接返回数据的最新章节
 	//书籍ID返回书籍最新的章节信息
 	
-	
 	/**
 	 * 返回消息
 	 */
@@ -37,7 +36,7 @@ class SiteController extends CController {
                 if (!empty($keyword)) {
                 	$message = WeixinData::bookSearch($keyword);
                 	if ($message['msgType'] == 'text') {
-                		$resultStr = $this->template->toMsgText($fromUsername, $toUsername, $keyword);
+                		$resultStr = $this->template->toMsgText($fromUsername, $toUsername, $message);
                 	} else if ($message['msgType'] == 'news') {
                 		
                 	}
@@ -71,8 +70,11 @@ class SiteController extends CController {
 		$resultStr = $this->template->toMsgNews($fromUsername, $toUsername, $news); */
 		//$resultStr = $this->template->toMsgText($fromUsername, $toUsername, $keyword);
 		
-		$message = WeixinData::bookSearch('都市');
+		//$message = WeixinData::bookSearch('都市');
+		$message = WeixinData::getbookSource(324);
 		var_dump($message);die;
+		
+		
 		if ($message['msgType'] == 'text') {
 			$resultStr = $this->template->toMsgText($fromUsername, $toUsername, $keyword);
 		} else if ($message['msgType'] == 'news') {
