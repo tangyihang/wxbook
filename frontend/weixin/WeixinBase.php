@@ -1,5 +1,6 @@
 <?php
 namespace frontend\Weixin;
+
 /**
  * 微信基础方法
  * @author v-tangyihang-yx

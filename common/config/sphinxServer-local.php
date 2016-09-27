@@ -6,18 +6,18 @@ return [
     'sphinxServer' => [
         //直营城市非聚合售房
 		'bookinfo' => [
-            'port' => '9897',
-            'server' => '120.76.123.86',
+            'port' => '9895',
+            'server' => '198.71.91.148',
             'indexName' => 'bookinfo'
         ],
 		'booksource' => [
 			'port' => '9898',
-			'server' => '120.76.123.86',
+			'server' => '198.71.91.148',
 			'indexName' => 'booksource'
 		],
 		'chapters' => [
-			'port' => '9903',
-			'server' => '120.76.123.86',
+			'port' => '9901',
+			'server' => '198.71.91.148',
 			'indexName' => 'chapters'
 		],
     ]
