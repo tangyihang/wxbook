@@ -31,7 +31,11 @@ class SiteController extends CController {
                 $keyword = trim($postObj->Content);
                 
                 if (!empty($keyword)) {
-                	$message = WeixinData::bookSearch($keyword);
+                	if (is_numeric($keyword)) {
+                		$message = WeixinData::getbookSource($keyword);
+                	} else {
+                		$message = WeixinData::bookSearch($keyword);
+                	}
                 	if ($message['msgType'] == 'text') {
                 		$resultStr = $this->template->toMsgText($fromUsername, $toUsername, $message['content']);
                 	} else if ($message['msgType'] == 'news') {
