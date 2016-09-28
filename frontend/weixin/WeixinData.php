@@ -55,9 +55,9 @@ class WeixinData{
 	 */
 	public static function getbookList($books){
 		$msgType = 'text';
-		$content = '未搜索到您找的小说，请确认小说名称是否正确。';
+		$content = '';
 		foreach ($books as $v) {
-			$content .= '书号：'.$v['bookid'].'，名称：，'.$v['bookname'].'作者：'.$v['author'].'。\n';
+			$content .= "书号：".$v['bookid']."，名称：".$v['bookname']."，作者：".$v['author']."\n";
 		}
 		return array(
 				'msgType' => $msgType,
