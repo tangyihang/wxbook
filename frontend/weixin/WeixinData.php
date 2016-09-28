@@ -21,9 +21,12 @@ class WeixinData{
 	public static function bookSearch($keyword){
 		$books = Search::getBooksInfo($keyword);
 		if (!empty($books)) {
-			if (count($books) > 1) {
-				$message = self::getbookList($books);
-			}
+			$message = self::getbookList($books);
+		} else {
+			$message = array(
+				'msgType' => 'text',
+				'content' => '未搜索到您找的小说，请确认小说名称是否正确。'
+			);
 		}
 		return $message;
 	}
@@ -35,13 +38,19 @@ class WeixinData{
 	public static function getbookSource($bookid){
 		$bookInfo = Search::getBookSourcesById($bookid);
 		$msgType = 'news';
-		$content = '';
+		$content = array();
 		if (!empty($bookInfo)) {
-			
-			var_dump($bookInfo);
+			foreach ($bookInfo as $v) {
+				$content[] = array(
+						'title' => $v['bcnewtitle'],
+						'desc' => $v['info'],
+						'pic' => $v['imgsourceurl'],
+						'link' => $v['listurl'],
+				);
+			}
 		} else {
 			$msgType = 'text';
-			$content = '未搜索到您找的小说，请确认关键词是否正确。';
+			$content = '未搜索到您找的小说，请确认小说ID是否正确。';
 		}
 		return array(
 				'msgType' => $msgType,

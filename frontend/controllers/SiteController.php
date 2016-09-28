@@ -35,7 +35,7 @@ class SiteController extends CController {
                 	if ($message['msgType'] == 'text') {
                 		$resultStr = $this->template->toMsgText($fromUsername, $toUsername, $message['content']);
                 	} else if ($message['msgType'] == 'news') {
-                		
+                		$resultStr = $this->template->toMsgNews($fromUsername, $toUsername, $message['content']);
                 	}
                 	echo $resultStr;
                 } else {
