@@ -33,7 +33,7 @@ class SiteController extends CController {
                 if (!empty($keyword)) {
                 	$message = WeixinData::bookSearch($keyword);
                 	if ($message['msgType'] == 'text') {
-                		$resultStr = $this->template->toMsgText($fromUsername, $toUsername, $message);
+                		$resultStr = $this->template->toMsgText($fromUsername, $toUsername, $message['content']);
                 	} else if ($message['msgType'] == 'news') {
                 		
                 	}
