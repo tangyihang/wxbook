@@ -5,6 +5,8 @@ use yii\helpers\Json;
 use frontend\config\CController;
 use frontend\models\Search;
 use frontend\weixin\WeixinData;
+use frontend\modelsDB\CollectCmUrlDB;
+use frontend\modelsDB\CollectCmFieldDB;
 /**
  * 首页
  */
@@ -54,33 +56,11 @@ class SiteController extends CController {
 	
 	
 	public function actionTest(){
-		/* $news = array(
-				array(
-						'title' => '凡人修仙传 起点中文网',
-						'desc' => '凡人修仙传 起点中文网得desc',
-						'pic' => 'http://qidian.qpic.cn/qdbimg/349573/107580/180',
-						'link' => 'http://read.qidian.com/BookReader/Gyliu2kLjSQ1.aspx',
-				),
-				array(
-						'title' => '凡人修仙传 笔趣阁',
-						'desc' => '凡人修仙传 笔趣阁desc',
-						'pic' => 'http://www.biquku.com/d/image/1/1429/1429s.jpg',
-						'link' => 'http://www.biquku.com/1/1429/',
-				),
-		); 
-		$resultStr = $this->template->toMsgNews($fromUsername, $toUsername, $news); */
-		//$resultStr = $this->template->toMsgText($fromUsername, $toUsername, $keyword);
+		
 		
 		//$message = WeixinData::bookSearch('都市');
-		$message = WeixinData::getbookSource(324);
-		var_dump($message);die;
 		
 		
-		if ($message['msgType'] == 'text') {
-			$resultStr = $this->template->toMsgText($fromUsername, $toUsername, $keyword);
-		} else if ($message['msgType'] == 'news') {
-			
-		}
 		echo $resultStr;
 	}
 	
