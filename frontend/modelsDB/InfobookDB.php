@@ -64,5 +64,19 @@ class InfobookDB extends ActiveRecord {
 		}
 		return $bookid;
 	}
+
+	/**
+	 * 获取书籍搜索结果
+	 * @param string $keyword
+	 */
+	public static function getBooksInfo($keyword){
+		$key = 'bookinfo_getBooks_bookname_'.$keyword;
+		$books = \Yii::$app->cache->get($key);
+		if (empty($books)){
+			$books = InfobookDB::find()->where('bookname like :bookname')->addParams([':bookname' => '%'.$keyword.'%'])->limit(10)->all();
+			//\Yii::$app->cache->set($key, $books, ONE_HOUSE_TIME);
+		}
+		return $books;
+	}
 	
 }

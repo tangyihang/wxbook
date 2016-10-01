@@ -25,7 +25,7 @@ class CollectCmFieldDB extends ActiveRecord {
 		$key = 'CollectCmFieldDB_getFieldInfo_ruleid_'.$ruleid;
 		$fields = \Yii::$app->cache->get($key);
 		if (empty($fields)) {
-			$fields = self::find()->where(['ruleid' => $ruleid])->all();
+			$fields = self::find()->where(['cruleid' => $ruleid])->all();
 			\Yii::$app->cache->set($key, $fields, ONE_MONTH_TIME);
 		}
 		return $fields;
@@ -43,11 +43,11 @@ class CollectCmFieldDB extends ActiveRecord {
 	 * @return boolean
 	 */
 	public static function setfield(){
-		$field = new CollectFieldDB();
+		$field = new CollectCmFieldDB();
 		$field->sourceid = '1';
-		$field->fieldname = 'bookid';//字段名
-		$field->cruleid = '20';//所属规则id
-		$field->uregular = '<div id="contentts">(*)<div id="adright">';//规则
+		$field->fieldname = 'chapterid';//字段名
+		$field->cruleid = '3';//所属规则id
+		$field->uregular = 'http://www.ckxsw.co/chkbook/(?)/(?)/(*).html';//规则
 		$field->save();
 		var_dump($field);
 		return true;

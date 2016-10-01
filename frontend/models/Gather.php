@@ -530,6 +530,25 @@ class Gather {
 		unset($fieldvalue, $fields, $urlregion, $reflink);
 		return $contents;
 	}
+
+	/**
+	 * 获取拼接好的手机站链接
+	 * @param string $fields
+	 * @param string $urlregion
+	 */
+	function fetch_mfields($fields, $cmurl, $reflink){
+		//var_dump($fields);
+		var_dump($cmurl);
+		var_dump($reflink);
+		foreach ($fields as $key => $value) {
+			var_dump($value['uregular']);
+			$fieldvalue = $this->fetch_detail( $value['uregular'], $reflink );
+			$cmurl = str_replace ( "%".$value['fieldname']."%", $fieldvalue, $cmurl );
+			var_dump($fieldvalue);
+			//$value['filedname'] = '';
+		}
+		return $cmurl;
+	}
 	
 	/**
 	 * 根据规则字符串正则匹配出匹配的信息

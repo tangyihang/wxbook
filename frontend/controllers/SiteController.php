@@ -3,10 +3,11 @@ namespace frontend\controllers;
 use Yii;
 use yii\helpers\Json;
 use frontend\config\CController;
-use frontend\models\Search;
+use frontend\models\Gather;
 use frontend\weixin\WeixinData;
 use frontend\modelsDB\CollectCmUrlDB;
 use frontend\modelsDB\CollectCmFieldDB;
+use frontend\modelsDB\BooksourceDB;
 /**
  * 首页
  */
@@ -56,12 +57,31 @@ class SiteController extends CController {
 	
 	
 	public function actionTest(){
-		
-		
+        echo '<pre>';
+		$bookInfo = BooksourceDB::getBookSourcesById('340');
+        //var_dump($bookInfo);die;
+        $gather = new Gather(1);
+        $rules = CollectCmUrlDB::getRuleInfo('1');
+        foreach ($rules as $key => $value) {
+            //var_dump($value);
+            $fields = CollectCmFieldDB::getFieldInfo($value['id']);
+            //var_dump($fields);
+            if ($value['typeid'] == 1) {
+                $murl = $gather->fetch_mfields($fields, $value['url_mstr'], $bookInfo['infourl']);
+            } else if ($value['typeid'] == 2) {
+                $murl = $gather->fetch_mfields($fields, $value['url_mstr'], $bookInfo['listurl']);
+            } else {
+                $murl = $gather->fetch_mfields($fields, $value['url_mstr'], $bookInfo['bcnewurl']);
+            }
+            var_dump($murl);
+            //die;
+        }
+
+        var_dump($rules);
 		//$message = WeixinData::bookSearch('都市');
-		
-		
-		echo $resultStr;
+		//CollectCmFieldDB::setfield();//生成获取字段的规则
+		//$resultStr = '1111';
+		//echo $resultStr;
 	}
 	
 	

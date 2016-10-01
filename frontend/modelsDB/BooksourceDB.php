@@ -65,5 +65,19 @@ class BooksourceDB extends ActiveRecord {
 		self::updateAll(['isgather' => 0], array('id' => $ids));
 		return true;
 	}
+
+	/**
+	 * 根据书籍ID获取书籍来源列表
+	 * @param int $bookid
+	 */
+	public static function getBookSourcesById($bookid){
+		$key = 'bookinfo_getBookinfo_id_'.$bookid;
+		$bookSource = \Yii::$app->cache->get($key);
+		if (empty($bookSource)){
+			$bookSource = BooksourceDB::find()->where(['bookid'=>$bookid])->one();
+			//\Yii::$app->cache->set($key, $bookSource, ONE_HOUSE_TIME);
+		}
+		return $bookSource;
+	}
 	
 }

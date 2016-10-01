@@ -36,9 +36,9 @@ class CollectCmUrlDB extends ActiveRecord {
 	 */
 	public static function setrule(){
 		$rule = new CollectCmUrlDB();
-		$rule->sourceid = '5';//来源网站主键id
-		$rule->typeid = '4';//转换规则类型:1、书籍介绍页，2、书籍章节列表页，3、书籍章节详情页
-		$rule->url_mstr = '';//手机站链接规则
+		$rule->sourceid = '1';//来源网站主键id
+		$rule->typeid = '3';//转换规则类型:1、书籍介绍页，2、书籍章节列表页，3、书籍章节详情页
+		$rule->url_mstr = 'http://m.ckxsw.co/chapter/%bookid%/%chapterid%.html';//手机站链接规则
 		$rule->save();
 		var_dump($rule);
 		return true;

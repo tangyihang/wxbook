@@ -3,9 +3,8 @@ namespace frontend\Weixin;
 
 use Yii;
 use common\helps\globals;
-use frontend\models\Search;
-use frontend\weixin\WeixinBase;
-use frontend\weixin\WeixinTemplate;
+use frontend\modelsDB\InfobookDB;
+use frontend\modelsDB\BooksourceDB;
 
 /**
  * 组成微信数据
@@ -19,7 +18,7 @@ class WeixinData{
 	 * @param string $keyword
 	 */
 	public static function bookSearch($keyword){
-		$books = Search::getBooksInfo($keyword);
+		$books = InfobookDB::getBooksInfo($keyword);
 		if (!empty($books)) {
 			$message = self::getbookList($books);
 		} else {
@@ -53,7 +52,7 @@ class WeixinData{
 	 * @param int $bookid
 	 */
 	public static function getbookSource($bookid){
-		$bookInfo = Search::getBookSourcesById($bookid);
+		$bookInfo = BooksourceDB::getBookSourcesById($bookid);
 		$msgType = 'news';
 		$content = array();
 		if (!empty($bookInfo)) {
