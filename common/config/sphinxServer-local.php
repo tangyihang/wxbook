@@ -4,21 +4,11 @@
  */
 return [
     'sphinxServer' => [
-        //直营城市非聚合售房
+    	//书籍内容信息
 		'bookinfo' => [
             'port' => '9895',
-            'server' => '198.71.91.148',
+            'server' => '192.157.226.238',
             'indexName' => 'bookinfo'
         ],
-		'booksource' => [
-			'port' => '9898',
-			'server' => '198.71.91.148',
-			'indexName' => 'booksource'
-		],
-		'chapters' => [
-			'port' => '9901',
-			'server' => '198.71.91.148',
-			'indexName' => 'chapters'
-		],
     ]
 ];

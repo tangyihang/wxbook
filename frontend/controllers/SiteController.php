@@ -8,6 +8,7 @@ use frontend\weixin\WeixinData;
 use frontend\modelsDB\CollectCmUrlDB;
 use frontend\modelsDB\CollectCmFieldDB;
 use frontend\modelsDB\BooksourceDB;
+use frontend\sphinx\BookinfoSphinx;
 /**
  * 首页
  */
@@ -57,7 +58,17 @@ class SiteController extends CController {
 	
 	
 	public function actionTest(){
-        echo '<pre>';
+		$search = new BookinfoSphinx();
+		$booksData = $search->search('');
+		var_dump($booksData);
+		var_dump($search);
+		//根据关键字搜索书籍
+		
+		//根据
+		
+		
+		
+        /* echo '<pre>';
 		$bookInfo = BooksourceDB::getBookSourcesById('340');
         //var_dump($bookInfo);die;
         $gather = new Gather(1);
@@ -77,7 +88,7 @@ class SiteController extends CController {
             //die;
         }
 
-        var_dump($rules);
+        var_dump($rules); */
 		//$message = WeixinData::bookSearch('都市');
 		//CollectCmFieldDB::setfield();//生成获取字段的规则
 		//$resultStr = '1111';

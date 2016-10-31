@@ -8,14 +8,14 @@ return [
     'components' => [
         'db' => [
             'class' => 'yii\db\Connection',
-            'dsn' => 'mysql:host=198.71.91.148;dbname=zhuabook3',
+            'dsn' => 'mysql:host=127.0.0.1;dbname=zhuabook3',
             'username' => 'root',
             'password' => 'root',
             'charset' => 'utf8',
         ],
 		'mongodb' => [
 			'class' => '\yii\mongodb\Connection',
-			'dsn' => 'mongodb://yihangbook:yihangbook@120.76.123.86:27017/zhuabook',
+			'dsn' => 'mongodb://yihangbook:yihangbook@127.0.0.1:27017/xzbook',
 		],
         'cache' => [
             'class' => 'yii\caching\FileCache',
