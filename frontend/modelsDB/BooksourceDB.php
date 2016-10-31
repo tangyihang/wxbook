@@ -74,7 +74,7 @@ class BooksourceDB extends ActiveRecord {
 		$key = 'bookinfo_getBookinfo_id_'.$bookid;
 		$bookSource = \Yii::$app->cache->get($key);
 		if (empty($bookSource)){
-			$bookSource = BooksourceDB::find()->where(['bookid'=>$bookid])->one();
+			$bookSource = BooksourceDB::find()->where(['bookid'=>$bookid])->all();
 			//\Yii::$app->cache->set($key, $bookSource, ONE_HOUSE_TIME);
 		}
 		return $bookSource;
